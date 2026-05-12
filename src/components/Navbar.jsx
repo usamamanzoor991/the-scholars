@@ -12,7 +12,15 @@ const navLinks = [
 ];
 
 const handleNavigate = (href) => {
-  document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+  const target = document.querySelector(href);
+  if (!target) return;
+
+  const rect = target.getBoundingClientRect();
+  if (rect.top < 0 || window.innerHeight + window.scrollY >= document.body.scrollHeight) {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });  // Instant top on overscroll
+  } else {
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 };
 
 const Navbar = () => {
