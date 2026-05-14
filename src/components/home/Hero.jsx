@@ -2,8 +2,29 @@ import React from 'react'
 import { CiMap } from "react-icons/ci";
 
 const Hero = () => {
+
+  const heroRef = useRef(null);
+
+  useEffect(() => {
+    const el = heroRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Off-screen: tell browser "keep this layer alive"
+        // On-screen: release the hint so browser manages normally  
+        el.style.willChange = entry.isIntersecting ? 'auto' : 'transform';
+      },
+      // rootMargin pre-warms tiles 500px BEFORE hero enters viewport
+      { rootMargin: '500px 0px', threshold: 0 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div id='hero' className='relative w-full flex items-center justify-center pt-24 pb-4 px-6 overflow-hidden' style={{
+    <div id='hero' ref={heroRef} className='relative w-full flex items-center justify-center pt-24 pb-4 px-6 overflow-hidden' style={{
       WebkitTransform: 'translateZ(0)',
       transform: 'translateZ(0)',
     }}>
@@ -18,7 +39,10 @@ const Hero = () => {
       // ↑ translateZ(0) promotes this specific img to its own compositor layer
       />
       <div className="absolute inset-0 bg-white/95 pointer-events-none" style={{ zIndex: 1 }} />
-      <div className='relative z-20 container flex md:flex-row flex-col items-center justify-between gap-4'>
+      <div
+        className='relative z-20 container flex md:flex-row flex-col items-center justify-between gap-4'
+        style={{ WebkitTransform: 'translateZ(0)', transform: 'translateZ(0)' }}
+      >
         <div className='md:w-[50%] flex flex-col items-baseline justify-center gap-4'>
           <h1 className='bg-secondary px-4 py-1 rounded-full text-[#3F1E8C] label-bold'>Admission Open</h1>
           <h1 className='display-xl'>Nurturing Independence and Natural Curiosity from <span className='text-primary'>Toddler to 8th Grade</span></h1>
