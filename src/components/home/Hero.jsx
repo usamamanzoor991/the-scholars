@@ -3,7 +3,10 @@ import { CiMap } from "react-icons/ci";
 
 const Hero = () => {
   return (
-    <div id='hero' className='relative w-full flex items-center justify-center pt-24 pb-4 px-6 overflow-hidden'>
+    <div id='hero' className='relative w-full flex items-center justify-center pt-24 pb-4 px-6 overflow-hidden' style={{
+      WebkitTransform: 'translateZ(0)',
+      transform: 'translateZ(0)',
+    }}>
       <img
         src="/hero-bg.jpg"
         alt=""
