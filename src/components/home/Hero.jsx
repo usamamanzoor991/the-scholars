@@ -15,7 +15,7 @@ const Hero = () => {
       // ↑ translateZ(0) promotes this specific img to its own compositor layer
       />
       <div className="absolute inset-0 bg-white/95 pointer-events-none" style={{ zIndex: 1 }} />
-      <div className='z-20 container flex md:flex-row flex-col items-center justify-between gap-4'>
+      <div className='relative z-20 container flex md:flex-row flex-col items-center justify-between gap-4'>
         <div className='md:w-[50%] flex flex-col items-baseline justify-center gap-4'>
           <h1 className='bg-secondary px-4 py-1 rounded-full text-[#3F1E8C] label-bold'>Admission Open</h1>
           <h1 className='display-xl'>Nurturing Independence and Natural Curiosity from <span className='text-primary'>Toddler to 8th Grade</span></h1>
