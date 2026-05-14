@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { CiMap } from "react-icons/ci";
 
 const Hero = () => {
