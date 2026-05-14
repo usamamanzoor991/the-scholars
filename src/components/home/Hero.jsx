@@ -3,8 +3,7 @@ import { CiMap } from "react-icons/ci";
 
 const Hero = () => {
   return (
-    <div id='hero' className='relative w-full flex items-center justify-center pt-24 pb-4 px-6'>
-      <img src="/hero-bg.jpg" alt="Hero Background" loading="eager" className='z-0 h-full w-full absolute inset-0 object-cover opacity-5' />
+    <div id='hero' className='relative w-full flex items-center justify-center pt-24 pb-4 px-6 bg-[url("/hero-bg.jpg")] bg-cover bg-[rgba(255,255,255,0.95)] bg-blend-overlay'>
       <div className='z-20 container flex md:flex-row flex-col items-center justify-between gap-4'>
         <div className='md:w-[50%] flex flex-col items-baseline justify-center gap-4'>
           <h1 className='bg-secondary px-4 py-1 rounded-full text-[#3F1E8C] label-bold'>Admission Open</h1>
