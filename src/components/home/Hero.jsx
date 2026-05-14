@@ -3,8 +3,18 @@ import { CiMap } from "react-icons/ci";
 
 const Hero = () => {
   return (
-    <div id='hero' className='relative w-full flex items-center justify-center pt-24 pb-4 px-6 bg-[url("/hero-bg.jpg")] bg-cover will-change-transform'>
-      <div className="absolute inset-0 bg-white/95 pointer-events-none" />
+    <div id='hero' className='relative w-full flex items-center justify-center pt-24 pb-4 px-6 overflow-hidden'>
+      <img
+        src="/hero-bg.jpg"
+        alt=""
+        aria-hidden="true"
+        loading="eager"
+        fetchPriority="high"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
+        style={{ zIndex: 0, transform: 'translateZ(0)' }}
+      // ↑ translateZ(0) promotes this specific img to its own compositor layer
+      />
+      <div className="absolute inset-0 bg-white/95 pointer-events-none" style={{ zIndex: 1 }} />
       <div className='z-20 container flex md:flex-row flex-col items-center justify-between gap-4'>
         <div className='md:w-[50%] flex flex-col items-baseline justify-center gap-4'>
           <h1 className='bg-secondary px-4 py-1 rounded-full text-[#3F1E8C] label-bold'>Admission Open</h1>
