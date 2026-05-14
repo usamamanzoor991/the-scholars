@@ -30,7 +30,7 @@ const Navbar = () => {
   return (
     <>
       {/* Navbar */}
-      <nav className="w-full fixed top-0 left-0 z-50 flex items-center justify-center px-6 bg-background border-b border-black/5 translate-z-0 will-change-transform" style={{ contain: 'paint', isolation: 'isolate' }}>
+      <nav className="w-full fixed top-0 left-0 z-50 flex items-center justify-center px-6 bg-background border-b border-black/5">
         <div className="container flex items-center justify-between py-4 gap-8">
 
           {/* Brand */}

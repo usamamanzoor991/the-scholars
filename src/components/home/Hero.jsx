@@ -25,7 +25,7 @@ const Hero = () => {
             </button>
           </div>
         </div>
-        <img src="/hero-left.png" alt="Hero-Right" className='md:w-[50%] h-[500px] object-contain' />
+        <img src="/hero-left.png" alt="Hero-Right" loading="eager" className='md:w-[50%] h-[500px] object-contain' />
       </div>
     </div>
   )
